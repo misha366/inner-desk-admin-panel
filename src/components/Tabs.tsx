@@ -19,25 +19,26 @@ export default function Tabs({ tabs, defaultTabId }: TabsProps) {
   const activeTab = tabs.find((tab) => tab.id === activeTabId);
 
   return (
-    <div className="w-full">
-      <div className="border-b border-gray-200">
-        <nav className="flex gap-2" aria-label="Tabs">
+    <div className="flex gap-6">
+      <nav className="w-48 flex-shrink-0" aria-label="Tabs">
+        <ul className="space-y-1">
           {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTabId(tab.id)}
-              className={`px-4 py-2 text-sm font-medium transition-colors ${
-                activeTabId === tab.id
-                  ? "border-b-2 border-indigo-500 text-indigo-600"
-                  : "text-gray-500 hover:text-gray-700 hover:border-b-2 hover:border-gray-300"
-              }`}
-            >
-              {tab.label}
-            </button>
+            <li key={tab.id}>
+              <button
+                onClick={() => setActiveTabId(tab.id)}
+                className={`w-full text-left px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  activeTabId === tab.id
+                    ? "bg-indigo-50 text-indigo-600"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                }`}
+              >
+                {tab.label}
+              </button>
+            </li>
           ))}
-        </nav>
-      </div>
-      <div className="py-4">{activeTab?.content}</div>
+        </ul>
+      </nav>
+      <div className="flex-1">{activeTab?.content}</div>
     </div>
   );
 }
