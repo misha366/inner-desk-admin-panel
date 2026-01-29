@@ -1,4 +1,5 @@
 import Tabs from "@/components/Tabs";
+import UserProfileDropdown from "@/components/UserProfileDropdown";
 
 export default function Home() {
   const tabs = [
@@ -22,8 +23,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
       <header className="bg-slate-900 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-xl font-semibold text-white">Admin Panel</h1>
+          <UserProfileDropdown name="John Doe" email="John@innerdesk.com" />
         </div>
       </header>
       <main className="max-w-7xl mx-auto px-4 py-6">
